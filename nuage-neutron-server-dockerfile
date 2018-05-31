@@ -1,0 +1,21 @@
+FROM registry.access.redhat.com/rhosp13-beta/openstack-neutron-server:latest
+
+LABEL description="Red Hat OpenStack Platform 13.0-beta nuage-neutron-server"
+LABEL version-release=5.3.1
+LABEL summary="Nuage Neutron Plugin"
+LABEL io.k8s.display-name="Red Hat OpenStack Platform 13.0-beta nuage-neutron-server"
+LABEL com.redhat.component="openstack-nuage-neutron-docker"
+LABEL name="rhosp13-beta/openstack-nuage-neutron-server"
+LABEL version=13
+LABEL release=5.3.1
+LABEL architecture="x86_64"
+
+
+USER root
+
+COPY nuage.repo /etc/yum.repos.d/nuage.repo
+RUN yum install nuage-openstack-neutron nuage-openstack-neutronclient -y && yum clean all
+
+RUN rm -f /etc/yum.repos.d/nuage.repo
+
+USER neutron
