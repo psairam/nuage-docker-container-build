@@ -13,8 +13,6 @@ LABEL architecture="x86_64"
 
 USER root
 
-RUN yum-config-manager --disable \* > disable
-RUN rm -f disable
 
 RUN yum clean all
 
