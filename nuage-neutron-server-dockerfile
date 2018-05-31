@@ -13,6 +13,9 @@ LABEL architecture="x86_64"
 
 USER root
 
+RUN yum-config-manager --disable \* > disable
+RUN rm -f disable
+
 COPY nuage.repo /etc/yum.repos.d/nuage.repo
 RUN yum install nuage-openstack-neutron nuage-openstack-neutronclient -y && yum clean all
 
