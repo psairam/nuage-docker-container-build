@@ -16,6 +16,8 @@ USER root
 RUN yum-config-manager --disable \* > disable
 RUN rm -f disable
 
+RUN yum clean all
+
 COPY nuage.repo /etc/yum.repos.d/nuage.repo
 RUN yum install nuage-openstack-neutron nuage-openstack-neutronclient -y && yum clean all
 
