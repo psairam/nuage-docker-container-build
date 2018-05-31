@@ -1,13 +1,13 @@
 FROM registry.access.redhat.com/rhosp13-beta/openstack-neutron-server:latest
 
 LABEL description="Red Hat OpenStack Platform 13.0-beta nuage-neutron-server"
-LABEL version-release=5.3.1
+LABEL version-release=5.3.1-testing
 LABEL summary="Nuage Neutron Plugin"
 LABEL io.k8s.display-name="Red Hat OpenStack Platform 13.0-beta nuage-neutron-server"
 LABEL com.redhat.component="openstack-nuage-neutron-docker"
 LABEL name="rhosp13-beta/openstack-nuage-neutron-server"
 LABEL version=13
-LABEL release=5.3.1
+LABEL release=5.3.1-testing
 LABEL architecture="x86_64"
 
 
