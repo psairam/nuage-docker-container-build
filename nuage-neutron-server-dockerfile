@@ -10,15 +10,13 @@ LABEL version=13
 LABEL release=5.3.1-testing
 LABEL architecture="x86_64"
 
-
 USER root
 
-RUN yum-config-manager --disable \* > disable
-RUN rm -f disable
-
 COPY nuage.repo /etc/yum.repos.d/nuage.repo
-RUN yum install nuage-openstack-neutron nuage-openstack-neutronclient -y && yum clean all
+RUN yum install --disablerepo "*" --enablerepo Nuage nuage-openstack-neutron nuage-openstack-neutronclient -y && yum clean all
 
 RUN rm -f /etc/yum.repos.d/nuage.repo
+
+COPY licenses /licenses
 
 USER neutron
